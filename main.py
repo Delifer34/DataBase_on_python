@@ -19,7 +19,12 @@ if __name__ == "__main__":
                login = input("Enter login: ")
                password = input("Enter password: ")
                DB.add_user(nametable,login,password)
-               print("Done!")
+               print("Done! Do you want to see your table? Y/n")
+               showtable = input()
+               if showtable == "Y":
+                    DB.show_info_table(nametable)
+               else:
+                    DB.exit()
             else:
                 DB.exit()
         else:

@@ -20,8 +20,11 @@ class DBases():
     
     def add_user(self, nametable, login, password):
         print(nametable,login,password)
-        self.cur.execute(f"""INSERT INTO {nametable}(login,password) VALUES (login="{login}", password="{password}")""")
+        self.cur.execute(f"""INSERT INTO {nametable}(login,password) VALUES ("{login}", "{password}")""")
         self.con.commit()
+    
+    def show_info_table(self,nametable):
+        self.cur.execute(f"""SELECT * FROM "{nametable}" """)
 
     def exit(self):
         sys.exit()
